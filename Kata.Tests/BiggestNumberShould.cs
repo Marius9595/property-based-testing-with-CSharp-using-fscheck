@@ -2,11 +2,10 @@ using FluentAssertions;
 
 namespace Kata.Tests;
 
-public class KataShould
+public class BiggestNumberShould
 {
     [Fact]
     public void DoNothing()
     {
-        SuperDuperKata.DoSomething().Should().Be(string.Empty);
     }
 }
