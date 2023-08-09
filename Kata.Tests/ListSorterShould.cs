@@ -51,4 +51,18 @@ public class ListSorterShould
             }
         );  
     }
+    
+    [Property]  
+    public Property NoNumbersAreAdded()  
+    {  
+        var generatorOfListOfNumbers = (  
+            Gen.Choose(int.MinValue, int.MaxValue).NonEmptyListOf().ToArbitrary()  
+        );
+        return Prop.ForAll(generatorOfListOfNumbers,numbers =>  
+            {
+                var sortedNumbers = ListSorter.Sort(numbers);
+                sortedNumbers.All(numbers.Contains).Should().BeTrue();
+            }
+        );  
+    }
 }
