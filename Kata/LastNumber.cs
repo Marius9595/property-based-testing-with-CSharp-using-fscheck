@@ -4,6 +4,6 @@ public class LastNumber
 {
     public static int  FindLastNumber(List<int> numbers)
     {
-        return 5;
+        return numbers[^1];
     }
 }
