@@ -16,4 +16,22 @@ public class LastNumberShould
         var lastNumber = LastNumber.FindLastNumber(numbers);
         lastNumber.Should().Be(knowNumber);
     }
+    [Property]  
+    public Property PickTheLastNumber__PropertyBased()  
+    {  
+        var generatorOfListOfNumbers = (  
+            Gen.Choose(int.MinValue, int.MaxValue).NonEmptyListOf().ToArbitrary()  
+        );  
+        var generatorKnownNumbers = (  
+            Gen.Choose(int.MinValue, int.MaxValue).ToArbitrary()  
+        );  
+        return Prop.ForAll(  
+            generatorKnownNumbers,generatorOfListOfNumbers,  
+            (knowNumber, numbers) =>  
+            {  
+                numbers.Add(knowNumber);  
+                var lastNumber = LastNumber.FindLastNumber(numbers);  
+                lastNumber.Should().Be(knowNumber);  
+            });  
+    }
 }
