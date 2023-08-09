@@ -37,4 +37,18 @@ public class ListSorterShould
         
         return true;
     }
+    
+    [Property]  
+    public Property ASortedListAndUnsortedListHasBothTheSameSize()  
+    {  
+        var generatorOfListOfNumbers = (  
+            Gen.Choose(int.MinValue, int.MaxValue).NonEmptyListOf().ToArbitrary()  
+        );
+        return Prop.ForAll(generatorOfListOfNumbers,numbers =>  
+            {
+                var sortedNumbers = ListSorter.Sort(numbers);
+                sortedNumbers.Count.Should().Be(numbers.Count);
+            }
+        );  
+    }
 }
