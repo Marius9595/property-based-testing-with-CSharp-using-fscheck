@@ -10,7 +10,7 @@ public class BiggestNumberShould
 {
     
     [Property]
-    public Property FindsBiggestNumber()
+    public Property FindsBiggestNumberWithMaxFunction()
     {
         var generatorOfListOfNumbers = (
             Gen.Choose(int.MinValue, int.MaxValue).NonEmptyListOf().ToArbitrary()
@@ -19,6 +19,20 @@ public class BiggestNumberShould
         {
             var biggestNumber = BiggestNumber.FindBiggestNumber(numbers);
             biggestNumber.Should().Be(numbers.Max());
+        });
+    }
+    
+    [Property]
+    public Property FindsBiggestNumberWithSortingModel()
+    {
+        var generatorOfListOfNumbers = (
+            Gen.Choose(int.MinValue, int.MaxValue).NonEmptyListOf().ToArbitrary()
+        );
+        return Prop.ForAll(generatorOfListOfNumbers, numbers =>
+        {
+            var biggestNumber = BiggestNumber.FindBiggestNumber(numbers);
+            numbers.Sort();
+            biggestNumber.Should().Be(numbers[^1]);
         });
     }
 }

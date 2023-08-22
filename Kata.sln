@@ -1,8 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kata", "Kata\Kata.csproj", "{7ED282BF-C679-4B90-B240-8E77AD23959A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniPrograms", "MiniPrograms\MiniPrograms.csproj", "{7ED282BF-C679-4B90-B240-8E77AD23959A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kata.Tests", "Kata.Tests\Kata.Tests.csproj", "{6F716629-4682-4620-88DC-BBC2E85AED78}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiniPrograms.Tests", "MiniPrograms.Tests\MiniPrograms.Tests.csproj", "{6F716629-4682-4620-88DC-BBC2E85AED78}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
